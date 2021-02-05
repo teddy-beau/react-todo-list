@@ -7,7 +7,7 @@ import "./App.css";
 function App() {
    const [input, setInput] = useState("");
    const [tasks, setTasks] = useState([]);
-   const [done, setDone] = useState(false);
+   //  const [done, setDone] = useState(false);
 
    return (
       <>
@@ -15,8 +15,8 @@ function App() {
          <Tasks
             tasks={tasks}
             setTasks={setTasks}
-            done={done}
-            setDone={setDone}
+            // done={done}
+            // setDone={setDone}
          />
          <AddTask
             input={input}

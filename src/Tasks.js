@@ -1,4 +1,4 @@
-const Tasks = ({ tasks, setTasks, done, setDone }) => {
+const Tasks = ({ tasks, setTasks }) => {
    return tasks.map((element, index) => {
       return (
          <div className="task" key={index}>
@@ -6,10 +6,14 @@ const Tasks = ({ tasks, setTasks, done, setDone }) => {
                type="checkbox"
                id={index}
                onClick={() => {
-                  if (done) {
-                     setDone(false);
+                  if (element.done) {
+                     const newTasks = [...tasks];
+                     newTasks[index].done = false;
+                     setTasks(newTasks);
                   } else {
-                     setDone(true);
+                     const newTasks = [...tasks];
+                     newTasks[index].done = true;
+                     setTasks(newTasks);
                   }
                }}
             />
@@ -17,10 +21,11 @@ const Tasks = ({ tasks, setTasks, done, setDone }) => {
             <label
                for={index}
                style={{
-                  textDecorationLine: done === true ? "line-through" : "none",
+                  textDecorationLine:
+                     element.done === true ? "line-through" : "none",
                }}
             >
-               {element}
+               {element.name}
             </label>
 
             <button
