@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Tasks = ({ tasks, setTasks }) => {
    return tasks.map((element, index) => {
       return (
@@ -28,15 +30,16 @@ const Tasks = ({ tasks, setTasks }) => {
                {element.name}
             </label>
 
-            <button
+            <FontAwesomeIcon
+               className="delete"
+               icon="backspace"
+               color="#4eb5a4"
                onClick={() => {
                   const newTasks = [...tasks];
                   newTasks.splice(index, 1);
                   setTasks(newTasks);
                }}
-            >
-               X
-            </button>
+            />
          </div>
       );
    });

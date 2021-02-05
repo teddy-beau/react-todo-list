@@ -3,6 +3,9 @@ import Tasks from "./Tasks";
 import AddTask from "./AddTask";
 import Footer from "./Footer";
 import "./App.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faBackspace } from "@fortawesome/free-solid-svg-icons";
+library.add(faBackspace);
 
 function App() {
    const [input, setInput] = useState("");
