@@ -37,6 +37,10 @@ form > button {
    background-color: #4eb5a4;
    color: #fff;
 }
+form > button:hover {
+   cursor: pointer;
+   background-color: #2f9483;
+}
 
 .task {
    display: flex;
