@@ -1,26 +1,24 @@
 import { useState } from "react";
+import "./App.css";
+// Import of components
 import Tasks from "./Tasks";
 import AddTask from "./AddTask";
 import Footer from "./Footer";
-import "./App.css";
+// Imports to use FontAwesome icons
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBackspace } from "@fortawesome/free-solid-svg-icons";
 library.add(faBackspace);
 
 function App() {
-   const [input, setInput] = useState("");
-   const [tasks, setTasks] = useState([]);
-   //  const [done, setDone] = useState(false);
+   const [input, setInput] = useState(""); // What will be typed into the inut field
+   const [tasks, setTasks] = useState([]); // Array that will receive an objects for each new task
 
    return (
       <>
          <h1>Todo List</h1>
-         <Tasks
-            tasks={tasks}
-            setTasks={setTasks}
-            // done={done}
-            // setDone={setDone}
-         />
+         {/* Component that will list the tasks */}
+         <Tasks tasks={tasks} setTasks={setTasks} />
+         {/* Component that will allow to add a task */}
          <AddTask
             input={input}
             setInput={setInput}
