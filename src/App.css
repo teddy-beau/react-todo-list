@@ -64,6 +64,9 @@ form > button:hover {
 .task:hover .delete {
    display: flex;
 }
+.delete:hover {
+   color: #2f9483;
+}
 
 footer {
    margin: 50px 0;
