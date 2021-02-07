@@ -3,24 +3,34 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Tasks = ({ tasks, setTasks }) => {
    // Looping through the array of tasks:
    return tasks.map((element, index) => {
+      // Function to define what happens when clicking "Add task" button
+      const handleClick = () => {
+         // Upon clicking on the checkbox, if the "done" key is set to true, it is toggled to false
+         if (element.done) {
+            const newTasks = [...tasks];
+            const doneTask = tasks[index];
+            newTasks[index].done = false;
+            newTasks.splice(index, 1);
+            newTasks.unshift(doneTask);
+            setTasks(newTasks);
+            // Else, it is toggled to true
+         } else {
+            const newTasks = [...tasks];
+            const doneTask = tasks[index];
+            newTasks[index].done = true;
+            newTasks.splice(index, 1);
+            newTasks.push(doneTask);
+            setTasks(newTasks);
+         }
+      };
       return (
          <div className="task" key={index}>
             <input
                type="checkbox"
                id={index}
-               onClick={() => {
-                  // Upon clicking on the checkbox, if the "done" key is set to true, it is toggled to false
-                  if (element.done) {
-                     const newTasks = [...tasks];
-                     newTasks[index].done = false;
-                     setTasks(newTasks);
-                     // Else, it is toggled to true
-                  } else {
-                     const newTasks = [...tasks];
-                     newTasks[index].done = true;
-                     setTasks(newTasks);
-                  }
-               }}
+               onClick={handleClick}
+               // If the task is done the checkbox is checked
+               checked={tasks[index].done === false ? false : true}
             />
 
             <label

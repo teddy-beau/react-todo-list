@@ -6,9 +6,7 @@ const AddTask = ({ input, setInput, tasks, setTasks }) => {
          onSubmit={(event) => {
             event.preventDefault();
             const newTasks = [...tasks];
-            console.log("log1: ", newTasks);
             newTasks.push({ name: input, done: false });
-            console.log("log1: ", newTasks);
             setTasks(newTasks);
          }}
       >
