@@ -11,11 +11,7 @@ library.add(faBackspace);
 
 function App() {
    const [input, setInput] = useState(""); // What will be typed into the inut field
-   const [tasks, setTasks] = useState([
-      { name: "Hello", done: false },
-      { name: "Bye", done: false },
-      { name: "Whoop", done: false },
-   ]); // Array that will receive an objects for each new task
+   const [tasks, setTasks] = useState([]); // Array that will receive an objects for each new task
 
    return (
       <>

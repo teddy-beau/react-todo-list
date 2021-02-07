@@ -5,9 +5,13 @@ const AddTask = ({ input, setInput, tasks, setTasks }) => {
          // This object consists of a "name" key (string) for the input and a "done" key (boolean) with a default value of "false"
          onSubmit={(event) => {
             event.preventDefault();
-            const newTasks = [...tasks];
-            newTasks.push({ name: input, done: false });
-            setTasks(newTasks);
+            if (input.length <= 0) {
+               alert("You need a description for your task!");
+            } else {
+               const newTasks = [...tasks];
+               newTasks.push({ name: input, done: false });
+               setTasks(newTasks);
+            }
          }}
       >
          <input
